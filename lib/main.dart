@@ -8,16 +8,16 @@ import 'package:get/get.dart';
 
 import 'app/routes/app_pages.dart';
 
-void main()async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(
-    GetMaterialApp(
-      title: "Application",
-      initialRoute: AppPages.INITIAL,
-      getPages: AppPages.routes,
-    ),
-  );
+  runApp(GameWidget(game: GamePlay())
+      // GetMaterialApp(
+      //   title: "Application",
+      //   initialRoute: AppPages.INITIAL,
+      //   getPages: AppPages.routes,
+      // ),
+      );
 }
