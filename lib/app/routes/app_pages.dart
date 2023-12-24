@@ -1,3 +1,6 @@
+import 'package:flappy_bird/app/modules/home/views/choiLogReg.dart';
+import 'package:flappy_bird/app/modules/home/views/login_page.dart';
+import 'package:flappy_bird/app/modules/home/views/register_page.dart';
 import 'package:get/get.dart';
 
 import '../modules/home/bindings/home_binding.dart';
@@ -8,13 +11,25 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.HOME;
+  static const INITIAL = Routes.CHOISE;
 
   static final routes = [
     GetPage(
       name: _Paths.HOME,
       page: () => const HomeView(),
       binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.CHOISE,
+      page: () => const Choise(),
+    ),
+    GetPage(
+      name: _Paths.LOGIN,
+      page: () => const Login(),
+    ),
+    GetPage(
+      name: _Paths.REGISTER,
+      page: () => const Register(),
     ),
   ];
 }
