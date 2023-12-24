@@ -1,5 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flappy_bird/firebase_options.dart';
+import 'package:flame/game.dart';
+import 'package:flappy_bird/app/modules/game_start/views/GamePlay.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
