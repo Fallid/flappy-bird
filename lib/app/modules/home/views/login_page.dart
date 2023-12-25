@@ -72,9 +72,6 @@ class _LoginState extends State<Login> {
                             _passwordController.text,
                           );
                         },
-                  style: ElevatedButton.styleFrom(
-                    primary: Color.fromARGB(255, 171, 83, 11),
-                  ),
                   child: _authController.isLoading.value
                       ? CircularProgressIndicator()
                       : Text('Login', style: TextStyle(color: Colors.black)),

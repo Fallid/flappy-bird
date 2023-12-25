@@ -25,9 +25,6 @@ class Choise extends StatelessWidget {
                   Get.to(() => Login());
                   print('Login button pressed');
                 },
-                style: ElevatedButton.styleFrom(
-                  primary: Color.fromARGB(255, 171, 83, 11),
-                ),
                 child: Text(
                   'Login',
                   style: TextStyle(color: Colors.black),

@@ -71,9 +71,6 @@ class _RegisterState extends State<Register> {
                             _passwordController.text,
                           );
                         },
-                  style: ElevatedButton.styleFrom(
-                    primary: Color.fromARGB(255, 171, 83, 11),
-                  ),
                   child: _authController.isLoading.value
                       ? CircularProgressIndicator()
                       : Text('Register', style: TextStyle(color: Colors.black)),
