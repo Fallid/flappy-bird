@@ -7,7 +7,7 @@ import 'package:flappy_bird/app/components/background.dart';
 import 'package:flappy_bird/app/components/bird.dart';
 import 'package:flappy_bird/app/components/ground.dart';
 import 'package:flappy_bird/app/components/pipe_ground.dart';
-import 'package:flappy_bird/app/modules/game_start/controllers/configuration.dart';
+import 'package:flappy_bird/app/modules/game_start/configuration.dart';
 import 'package:flutter/material.dart';
 
 class GamePlay extends FlameGame with TapDetector, HasCollisionDetection {

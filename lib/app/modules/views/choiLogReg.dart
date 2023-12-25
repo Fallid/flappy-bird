@@ -1,5 +1,5 @@
-import 'package:flappy_bird/app/modules/home/views/login_page.dart';
-import 'package:flappy_bird/app/modules/home/views/register_page.dart';
+import 'package:flappy_bird/app/modules/views/login_page.dart';
+import 'package:flappy_bird/app/modules/views/register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

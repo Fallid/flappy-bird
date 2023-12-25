@@ -1,16 +1,17 @@
-import 'package:flappy_bird/app/modules/home/controllers/auth_controller.dart';
+import 'package:flappy_bird/app/components/style/color_local.dart';
+import 'package:flappy_bird/app/components/style/image_local.dart';
+import 'package:flappy_bird/app/modules/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
-class Register extends StatefulWidget {
-  const Register({super.key});
+class Login extends StatefulWidget {
+  const Login({Key? key});
 
   @override
-  State<Register> createState() => _RegisterState();
+  State<Login> createState() => _LoginState();
 }
 
-class _RegisterState extends State<Register> {
+class _LoginState extends State<Login> {
   final AuthController _authController = Get.put(AuthController());
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -27,13 +28,13 @@ class _RegisterState extends State<Register> {
     return Scaffold(
       appBar: AppBar(
         actions: [],
-        title: Text('Register'),
-        backgroundColor: Color.fromARGB(255, 87, 187, 209),
+        title: const Text('Login'),
+        backgroundColor: ColorLocal.backgroundColor,
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/background.png'),
+            image: AssetImage(ImageLocal.backgroundPage),
             fit: BoxFit.cover,
           ),
         ),
@@ -45,35 +46,36 @@ class _RegisterState extends State<Register> {
             children: [
               TextField(
                 controller: _emailController,
-                style: TextStyle(color: Colors.black),
-                decoration: InputDecoration(
-                    labelText: 'Email',
-                    labelStyle:
-                        TextStyle(color: const Color.fromARGB(255, 0, 0, 0))),
+                style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+                decoration: const InputDecoration(
+                  labelText: 'Email',
+                  labelStyle: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+                ),
               ),
               TextField(
                 controller: _passwordController,
                 obscureText: true,
-                style: TextStyle(color: Colors.black),
-                decoration: InputDecoration(
-                    labelText: 'Password',
-                    labelStyle:
-                        TextStyle(color: const Color.fromARGB(255, 0, 0, 0))),
+                style: const TextStyle(color: Colors.black),
+                decoration: const InputDecoration(
+                  labelText: 'Password',
+                  labelStyle: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+                ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Obx(() {
                 return ElevatedButton(
                   onPressed: _authController.isLoading.value
                       ? null
                       : () {
-                          _authController.registerUser(
+                          _authController.loginUser(
                             _emailController.text,
                             _passwordController.text,
                           );
                         },
                   child: _authController.isLoading.value
-                      ? CircularProgressIndicator()
-                      : Text('Register', style: TextStyle(color: Colors.black)),
+                      ? const CircularProgressIndicator()
+                      : const Text('Login',
+                          style: TextStyle(color: Colors.black)),
                 );
               }),
             ],

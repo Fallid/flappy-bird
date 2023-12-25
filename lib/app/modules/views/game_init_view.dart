@@ -1,7 +1,7 @@
 import 'package:flame/game.dart';
-import 'package:flappy_bird/app/modules/game_start/views/GamePlay.dart';
-import 'package:flappy_bird/app/modules/home/views/game_over.dart';
-import 'package:flappy_bird/app/modules/home/views/main_menu.dart';
+import 'package:flappy_bird/app/modules/game_start/GamePlay.dart';
+import 'package:flappy_bird/app/modules/views/game_over.dart';
+import 'package:flappy_bird/app/modules/views/main_menu.dart';
 import 'package:flutter/material.dart';
 
 class GameView extends StatelessWidget {

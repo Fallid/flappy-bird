@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flappy_bird/app/components/style/color_local.dart';
-import 'package:flappy_bird/app/modules/home/views/game_init_view.dart';
-import 'package:flappy_bird/app/modules/home/views/login_page.dart';
+import 'package:flappy_bird/app/modules/views/game_init_view.dart';
+import 'package:flappy_bird/app/modules/views/login_page.dart';
 import 'package:get/get.dart';
 
 class AuthController extends GetxController {
