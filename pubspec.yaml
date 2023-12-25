@@ -17,6 +17,7 @@ dependencies:
   flame_audio: ^2.1.6
   shared_preferences: ^2.2.0
   get_storage: ^2.1.1
+  cloud_firestore: ^4.13.6
 
 dev_dependencies:
   flutter_lints: ^2.0.0
