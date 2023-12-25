@@ -36,18 +36,18 @@ class _RegisterState extends State<Register> {
           children: [
             TextField(
               controller: _emailController,
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: Colors.black),
               decoration: InputDecoration(
                   labelText: 'Email',
-                  labelStyle: TextStyle(color: Colors.white)),
+                  labelStyle: TextStyle(color: Colors.grey)),
             ),
             TextField(
               controller: _passwordController,
               obscureText: true,
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: Colors.black),
               decoration: InputDecoration(
                   labelText: 'Password',
-                  labelStyle: TextStyle(color: Colors.white)),
+                  labelStyle: TextStyle(color: Colors.grey)),
             ),
             SizedBox(height: 16),
             Obx(() {
