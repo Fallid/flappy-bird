@@ -2,7 +2,9 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flame/components.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flappy_bird/app/components/pipe.dart';
+import 'package:flappy_bird/app/components/style/sound_local.dart';
 import 'package:flappy_bird/app/modules/game_start/controllers/configuration.dart';
 import 'package:flappy_bird/app/modules/game_start/controllers/pipe_position.dart';
 import 'package:flappy_bird/app/modules/game_start/views/GamePlay.dart';
@@ -35,6 +37,17 @@ class PipeGround extends PositionComponent with HasGameRef<GamePlay> {
     if (position.x < -10) {
       removeFromParent();
       debugPrint("Avatar hit the pipe!");
+      updateScore();
     }
+
+    if (gameRef.isHit) {
+      removeFromParent();
+      gameRef.isHit = false;
+    }
+  }
+
+  void updateScore() {
+    gameRef.bird.score += 1;
+    FlameAudio.play(SoundLocal.point);
   }
 }

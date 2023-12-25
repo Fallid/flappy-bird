@@ -1,7 +1,9 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flappy_bird/app/components/style/image_local.dart';
+import 'package:flappy_bird/app/components/style/sound_local.dart';
 import 'package:flappy_bird/app/modules/game_start/controllers/configuration.dart';
 import 'package:flappy_bird/app/modules/game_start/controllers/movement.dart';
 import 'package:flappy_bird/app/modules/game_start/views/GamePlay.dart';
@@ -38,6 +40,7 @@ class Bird extends SpriteGroupComponent<BirdMovement>
         EffectController(duration: 0.2, curve: Curves.decelerate),
         onComplete: () => current = BirdMovement.down));
     current = BirdMovement.up;
+    FlameAudio.play(SoundLocal.flying);
   }
 
   @override
@@ -45,7 +48,7 @@ class Bird extends SpriteGroupComponent<BirdMovement>
     super.update(dt);
     position.y += Config.birdVelocity * dt;
     if (position.y < 1) {
-      // gameOver();
+      gameOver();
     }
   }
 
@@ -59,16 +62,16 @@ class Bird extends SpriteGroupComponent<BirdMovement>
     gameOver();
   }
 
-  // void reset() {
-  //   position = Vector2(50, gameRef.size.y / 2 - size.y / 2);
-  //   score = 0;
-  // }
+  void reset() {
+    position = Vector2(50, gameRef.size.y / 2 - size.y / 2);
+    score = 0;
+  }
 
   void gameOver() {
+    gameRef.overlays.add('gameOver');
     gameRef.pauseEngine();
-    // FlameAudio.play(Assets.collision);
-    // game.isHit = true;
-    // gameRef.overlays.add('gameOver');
-    // gameRef.pauseEngine();
+    FlameAudio.play(SoundLocal.collision);
+    game.isHit = true;
+    gameRef.pauseEngine();
   }
 }
