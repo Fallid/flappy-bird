@@ -3,10 +3,23 @@ import 'package:flappy_bird/app/components/style/color_local.dart';
 import 'package:flappy_bird/app/modules/views/game_init_view.dart';
 import 'package:flappy_bird/app/modules/views/login_page.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthController extends GetxController {
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  final SharedPreferences _prefs = Get.find<SharedPreferences>();
   RxBool isLoading = false.obs;
+  RxBool isLoggedIn = false.obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+    checkLoginStatus();
+  }
+
+  Future<void> checkLoginStatus() async {
+    isLoggedIn.value = _prefs.containsKey('user_token');
+  }
 
   Future<void> registerUser(String email, String password) async {
     try {
@@ -16,11 +29,11 @@ class AuthController extends GetxController {
         password: password,
       );
       Get.snackbar('Success', 'Registration successful',
-          backgroundColor: ColorLocal.backgroundColor);
-      Get.off(const Login()); //Navigate ke Login Page
+          backgroundColor: ColorLocal.successColor);
+      Get.off(() => const Login()); //Navigate ke Login Page
     } catch (error) {
       Get.snackbar('Error', 'Registration failed: $error',
-          backgroundColor: ColorLocal.warningColor);
+          backgroundColor: ColorLocal.errorColor);
     } finally {
       isLoading.value = false;
     }
@@ -30,12 +43,14 @@ class AuthController extends GetxController {
     try {
       isLoading.value = true;
       await _auth.signInWithEmailAndPassword(email: email, password: password);
+      _prefs.setString('user_token', _auth.currentUser!.uid);
       Get.snackbar('Succes', 'Login scucces',
-          backgroundColor: ColorLocal.backgroundColor);
-      Get.off(const GameView());
+          backgroundColor: ColorLocal.successColor);
+      isLoggedIn.value = true;
+      Get.off(() => const GameView());
     } catch (err) {
       Get.snackbar('Error', 'Login failed: $err',
-          backgroundColor: ColorLocal.warningColor);
+          backgroundColor: ColorLocal.errorColor);
     } finally {
       isLoading.value = false;
     }

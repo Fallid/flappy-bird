@@ -1,23 +1,27 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flappy_bird/app/modules/controllers/auth_controller.dart';
 import 'package:flappy_bird/firebase_options.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sizer/sizer.dart';
 
 import 'app/routes/app_pages.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Get.putAsync(() async => await SharedPreferences.getInstance());
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+  final AuthController _authController = Get.put(AuthController());
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +29,9 @@ class MyApp extends StatelessWidget {
       if (kDebugMode) {}
       return GetMaterialApp(
         title: "Flappy Bird: Remake",
-        initialRoute: AppPages.INITIAL,
+        initialRoute: _authController.isLoggedIn.value
+            ? AppPages.LOGGED
+            : AppPages.INITIAL,
         getPages: AppPages.routes,
       );
     });
