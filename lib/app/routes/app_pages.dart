@@ -1,5 +1,6 @@
 import 'package:flappy_bird/app/modules/home/views/choiLogReg.dart';
 import 'package:flappy_bird/app/modules/home/views/login_page.dart';
+import 'package:flappy_bird/app/modules/home/views/main_menu.dart';
 import 'package:flappy_bird/app/modules/home/views/register_page.dart';
 import 'package:get/get.dart';
 
@@ -31,5 +32,6 @@ class AppPages {
       name: _Paths.REGISTER,
       page: () => const Register(),
     ),
+    GetPage(name: _Paths.MAINMENU, page: () => MainMenuView())
   ];
 }

@@ -13,11 +13,13 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(GameWidget(game: GamePlay())
-      // GetMaterialApp(
-      //   title: "Application",
-      //   initialRoute: AppPages.INITIAL,
-      //   getPages: AppPages.routes,
-      // ),
-      );
+  runApp(
+    //Uncomment this line if you want play the game
+    // GameWidget(game: GamePlay())
+    GetMaterialApp(
+      title: "Application",
+      initialRoute: AppPages.INITIAL,
+      getPages: AppPages.routes,
+    ),
+  );
 }

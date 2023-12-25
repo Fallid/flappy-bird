@@ -9,17 +9,15 @@ import 'package:flappy_bird/app/modules/game_start/controllers/configuration.dar
 import 'package:flappy_bird/app/modules/game_start/views/GamePlay.dart';
 
 class Ground extends ParallaxComponent<GamePlay> with HasGameRef<GamePlay> {
+  Ground();
   @override
   FutureOr<void> onLoad() async {
     final ground = await Flame.images.load(ImageLocal.ground);
     parallax =
         Parallax([ParallaxLayer(ParallaxImage(ground, fill: LayerFill.none))]);
-    // add(
-    //   RectangleHitbox(
-    //     position: Vector2(0, gameRef.size.y - Config.groundHeight),
-    //     size: Vector2(gameRef.size.x, Config.groundHeight),
-    //   ),
-    // );
+    add(RectangleHitbox(
+        position: Vector2(0, gameRef.size.y - Config.groundHeight),
+        size: Vector2(gameRef.size.x, Config.groundHeight)));
     return super.onLoad();
   }
 
