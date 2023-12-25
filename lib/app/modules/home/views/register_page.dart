@@ -26,46 +26,58 @@ class _RegisterState extends State<Register> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [],
         title: Text('Register'),
+        backgroundColor: Color.fromARGB(255, 87, 187, 209),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            TextField(
-              controller: _emailController,
-              style: TextStyle(color: Colors.black),
-              decoration: InputDecoration(
-                  labelText: 'Email',
-                  labelStyle: TextStyle(color: Colors.grey)),
-            ),
-            TextField(
-              controller: _passwordController,
-              obscureText: true,
-              style: TextStyle(color: Colors.black),
-              decoration: InputDecoration(
-                  labelText: 'Password',
-                  labelStyle: TextStyle(color: Colors.grey)),
-            ),
-            SizedBox(height: 16),
-            Obx(() {
-              return ElevatedButton(
-                onPressed: _authController.isLoading.value
-                    ? null
-                    : () {
-                        _authController.registerUser(
-                          _emailController.text,
-                          _passwordController.text,
-                        );
-                      },
-                child: _authController.isLoading.value
-                    ? CircularProgressIndicator()
-                    : Text('Register'),
-              );
-            }),
-          ],
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/background.png'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              TextField(
+                controller: _emailController,
+                style: TextStyle(color: Colors.black),
+                decoration: InputDecoration(
+                    labelText: 'Email',
+                    labelStyle:
+                        TextStyle(color: const Color.fromARGB(255, 0, 0, 0))),
+              ),
+              TextField(
+                controller: _passwordController,
+                obscureText: true,
+                style: TextStyle(color: Colors.black),
+                decoration: InputDecoration(
+                    labelText: 'Password',
+                    labelStyle:
+                        TextStyle(color: const Color.fromARGB(255, 0, 0, 0))),
+              ),
+              SizedBox(height: 16),
+              Obx(() {
+                return ElevatedButton(
+                  onPressed: _authController.isLoading.value
+                      ? null
+                      : () {
+                          _authController.registerUser(
+                            _emailController.text,
+                            _passwordController.text,
+                          );
+                        },
+                  child: _authController.isLoading.value
+                      ? CircularProgressIndicator()
+                      : Text('Register', style: TextStyle(color: Colors.black)),
+                );
+              }),
+            ],
+          ),
         ),
       ),
     );
