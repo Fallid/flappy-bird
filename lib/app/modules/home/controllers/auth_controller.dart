@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flappy_bird/app/modules/home/views/home_view.dart';
+import 'package:flappy_bird/app/modules/home/views/level_page.dart';
 import 'package:flappy_bird/app/modules/home/views/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -31,7 +31,7 @@ class AuthController extends GetxController {
       isLoading.value = true;
       await _auth.signInWithEmailAndPassword(email: email, password: password);
       Get.snackbar('Succes', 'Login scucces', backgroundColor: Colors.green);
-      Get.off(HomeView());
+      Get.off(Level());
     } catch (err) {
       Get.snackbar('Error', 'Login failed: $err', backgroundColor: Colors.red);
     } finally {

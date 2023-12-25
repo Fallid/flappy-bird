@@ -24,11 +24,11 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: [],
-        title: Text('Login'),
-        backgroundColor: Color.fromARGB(255, 87, 187, 209),
-      ),
+      // appBar: AppBar(
+      //   actions: [],
+      //   title: Text('Login'),
+      //   backgroundColor: Color.fromARGB(255, 87, 187, 209),
+      // ),
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(

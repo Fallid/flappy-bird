@@ -1,4 +1,5 @@
 import 'package:flappy_bird/app/modules/home/views/choiLogReg.dart';
+import 'package:flappy_bird/app/modules/home/views/level_page.dart';
 import 'package:flappy_bird/app/modules/home/views/login_page.dart';
 import 'package:flappy_bird/app/modules/home/views/register_page.dart';
 import 'package:get/get.dart';
@@ -11,7 +12,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.CHOISE;
+  static const INITIAL = Routes.LEVEL;
 
   static final routes = [
     GetPage(
@@ -30,6 +31,10 @@ class AppPages {
     GetPage(
       name: _Paths.REGISTER,
       page: () => const Register(),
+    ),
+    GetPage(
+      name: _Paths.LEVEL,
+      page: () => Level(),
     ),
   ];
 }
