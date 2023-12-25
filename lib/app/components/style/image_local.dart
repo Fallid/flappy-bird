@@ -12,7 +12,7 @@ class ImageLocal {
   static const birdDownFlap = "bird_downflap.png";
 
   //assets system
-  static const gameOver = "gameover.png";
-  static const menu = "menu.png";
-  static const message = "message.png";
+  static const gameOver = "assets/images/gameover.png";
+  static const menu = "assets/images/menu.jpg";
+  static const message = "assets/images/message.png";
 }
