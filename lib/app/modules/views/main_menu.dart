@@ -1,5 +1,5 @@
 import 'package:flappy_bird/app/components/style/image_local.dart';
-import 'package:flappy_bird/app/modules/game_start/views/GamePlay.dart';
+import 'package:flappy_bird/app/modules/game_start/GamePlay.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
