@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flappy_bird/app/modules/home/views/home_view.dart';
+import 'package:flappy_bird/app/components/style/color_local.dart';
+import 'package:flappy_bird/app/modules/home/views/game_init_view.dart';
 import 'package:flappy_bird/app/modules/home/views/login_page.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AuthController extends GetxController {
@@ -16,11 +16,11 @@ class AuthController extends GetxController {
         password: password,
       );
       Get.snackbar('Success', 'Registration successful',
-          backgroundColor: Colors.green);
-      Get.off(Login()); //Navigate ke Login Page
+          backgroundColor: ColorLocal.backgroundColor);
+      Get.off(const Login()); //Navigate ke Login Page
     } catch (error) {
       Get.snackbar('Error', 'Registration failed: $error',
-          backgroundColor: Colors.red);
+          backgroundColor: ColorLocal.warningColor);
     } finally {
       isLoading.value = false;
     }
@@ -30,10 +30,12 @@ class AuthController extends GetxController {
     try {
       isLoading.value = true;
       await _auth.signInWithEmailAndPassword(email: email, password: password);
-      Get.snackbar('Succes', 'Login scucces', backgroundColor: Colors.green);
-      Get.off(HomeView());
+      Get.snackbar('Succes', 'Login scucces',
+          backgroundColor: ColorLocal.backgroundColor);
+      Get.off(const GameView());
     } catch (err) {
-      Get.snackbar('Error', 'Login failed: $err', backgroundColor: Colors.red);
+      Get.snackbar('Error', 'Login failed: $err',
+          backgroundColor: ColorLocal.warningColor);
     } finally {
       isLoading.value = false;
     }

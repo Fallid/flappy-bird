@@ -1,5 +1,6 @@
 import 'package:flappy_bird/app/modules/game_start/views/GamePlay.dart';
 import 'package:flappy_bird/app/modules/home/views/choiLogReg.dart';
+import 'package:flappy_bird/app/modules/home/views/game_init_view.dart';
 import 'package:flappy_bird/app/modules/home/views/login_page.dart';
 import 'package:flappy_bird/app/modules/home/views/main_menu.dart';
 import 'package:flappy_bird/app/modules/home/views/register_page.dart';
@@ -37,6 +38,7 @@ class AppPages {
         name: _Paths.MAINMENU,
         page: () => MainMenuView(
               play: GamePlay(),
-            ))
+            )),
+    GetPage(name: _Paths.GAMEVIEW, page: () => const GameView())
   ];
 }

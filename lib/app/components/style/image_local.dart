@@ -15,4 +15,7 @@ class ImageLocal {
   static const gameOver = "assets/images/gameover.png";
   static const menu = "assets/images/menu.jpg";
   static const message = "assets/images/message.png";
+
+  //assets pages
+  static const backgroundPage = "assets/images/background.png";
 }
