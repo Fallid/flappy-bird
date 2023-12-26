@@ -7,8 +7,9 @@ abstract class Routes {
   static const CHOISE = _Paths.CHOISE;
   static const LOGIN = _Paths.LOGIN;
   static const REGISTER = _Paths.REGISTER;
-  static const MAINMENU = _Paths.MAINMENU;
+  static const GAMESTART = _Paths.GAMESTART;
   static const GAMEVIEW = _Paths.GAMEVIEW;
+  static const GAMEOVER = _Paths.GAMEOVER;
 }
 
 abstract class _Paths {
@@ -17,6 +18,7 @@ abstract class _Paths {
   static const CHOISE = '/choise';
   static const LOGIN = '/login';
   static const REGISTER = '/register';
-  static const MAINMENU = '/MAINMENU';
+  static const GAMESTART = 'GAMESTART';
   static const GAMEVIEW = '/GAMEVIEW';
+  static const GAMEOVER = 'GAMEOVER';
 }

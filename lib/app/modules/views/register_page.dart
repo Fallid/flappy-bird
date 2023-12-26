@@ -1,6 +1,7 @@
+import 'package:flappy_bird/app/components/style/color_local.dart';
+import 'package:flappy_bird/app/components/style/image_local.dart';
 import 'package:flappy_bird/app/modules/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class Register extends StatefulWidget {
@@ -28,14 +29,13 @@ class _RegisterState extends State<Register> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [],
-        title: Text('Register'),
-        backgroundColor: Color.fromARGB(255, 87, 187, 209),
+        title: const Text('Register'),
+        backgroundColor: ColorLocal.backgroundColor,
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/background.png'),
+            image: AssetImage(ImageLocal.backgroundPage),
             fit: BoxFit.cover,
           ),
         ),
