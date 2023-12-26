@@ -17,9 +17,9 @@ class Bird extends SpriteGroupComponent<BirdMovement>
 
   @override
   Future<void> onLoad() async {
-    final birdMidFlap = await gameRef.loadSprite(ImageLocal.birdMidFlap);
-    final birdUpFlap = await gameRef.loadSprite(ImageLocal.birdUpFlap);
-    final birdDownFlap = await gameRef.loadSprite(ImageLocal.birdDownFlap);
+    final birdMidFlap = await gameRef.loadSprite(ImageLocal.birdRedMidFlap);
+    final birdUpFlap = await gameRef.loadSprite(ImageLocal.birdRedUpFlap);
+    final birdDownFlap = await gameRef.loadSprite(ImageLocal.birdRedDownFlap);
 
     gameRef.bird;
 

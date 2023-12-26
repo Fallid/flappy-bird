@@ -12,6 +12,9 @@ class ImageLocal {
   static const birdMidFlap = "bird_midflap.png";
   static const birdUpFlap = "bird_upflap.png";
   static const birdDownFlap = "bird_downflap.png";
+  static const birdRedMidFlap = "birdred_midflap.png";
+  static const birdRedUpFlap = "birdred_upflap.png";
+  static const birdRedDownFlap = "birdred_downflap.png";
 
   //assets system
   static const gameOver = "assets/images/gameover.png";
