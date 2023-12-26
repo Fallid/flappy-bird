@@ -10,8 +10,7 @@ class GameOverController extends GetxController {
   final _storage = GetStorage();
   final CollectionReference _authCollection =
       FirebaseFirestore.instance.collection("Profile");
-
-  late int showHighScore = _storage.read("high score");
+  late dynamic showHighScore = _storage.read("high score") ?? 0;
 
   void onRestart() {
     play.bird.reset();

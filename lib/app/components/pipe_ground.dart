@@ -21,14 +21,14 @@ class PipeGround extends PositionComponent with HasGameRef<GamePlay> {
   FutureOr<void> onLoad() async {
     position.x = gameRef.size.x;
     final minimalHeightGround = gameRef.size.y - Config.groundHeight;
-    final spacing = 100 + _random.nextDouble() * (minimalHeightGround / 4);
+    final spacing = 100 + _random.nextDouble() * (minimalHeightGround / 2.5);
     final centerY =
         spacing + _random.nextDouble() * (minimalHeightGround - spacing);
     addAll([
-      Pipe(pipePosition: PipePosition.top, height: centerY - spacing / 2),
+      Pipe(pipePosition: PipePosition.top, height: centerY - spacing / 1.5),
       Pipe(
           pipePosition: PipePosition.bottom,
-          height: minimalHeightGround - (centerY + spacing / 2))
+          height: minimalHeightGround - (centerY + spacing / 1.5))
     ]);
     return super.onLoad();
   }

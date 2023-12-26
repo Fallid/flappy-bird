@@ -9,7 +9,6 @@ class GameStartController extends GetxController {
   GameStartController({required this.play});
   final _authCollection = FirebaseFirestore.instance.collection("Profile");
   final _userToken = GetStorage().read("user_token");
-  final _storeHighScore = GetStorage();
 
   void onStartPlaying() {
     play.overlays.remove(Routes.GAMESTART);
@@ -22,13 +21,5 @@ class GameStartController extends GetxController {
 
   Future<void> initRealtimeScore() async {
     _authCollection.doc(_userToken).update({'realtime score': 0});
-  }
-
-  Future<void> getHighScore() async {
-    try {
-      DocumentSnapshot userDoc = await _authCollection.doc(_userToken).get();
-      dynamic highScore = userDoc.get("high score");
-      _storeHighScore.write("high score", highScore);
-    } catch (e) {}
   }
 }
