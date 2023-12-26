@@ -1,7 +1,9 @@
 class ImageLocal {
   //assets map
   static const background = "background.png";
+  static const backgroundWinter = "backgroundnight.png";
   static const ground = "ground.png";
+  static const groundWinter = "groundwinter.png";
   static const clounds = "clouds.png";
   static const pipe = "pipe.png";
   static const pipeRotated = "pipe_rotated.png";

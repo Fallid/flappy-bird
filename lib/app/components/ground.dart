@@ -12,7 +12,7 @@ class Ground extends ParallaxComponent<GamePlay> with HasGameRef<GamePlay> {
   Ground();
   @override
   FutureOr<void> onLoad() async {
-    final ground = await Flame.images.load(ImageLocal.ground);
+    final ground = await Flame.images.load(ImageLocal.groundWinter);
     parallax =
         Parallax([ParallaxLayer(ParallaxImage(ground, fill: LayerFill.none))]);
     add(RectangleHitbox(
