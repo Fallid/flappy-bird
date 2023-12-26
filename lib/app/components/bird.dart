@@ -13,7 +13,6 @@ import 'package:flutter/material.dart';
 class Bird extends SpriteGroupComponent<BirdMovement>
     with HasGameRef<GamePlay>, CollisionCallbacks {
   Bird();
-
   int score = 0;
 
   @override

@@ -14,6 +14,7 @@ class GameOverView extends GetView<GameOverController> {
   Widget build(BuildContext context) {
     return Sizer(builder: (context, orientation, devicetype) {
       GameOverBinding(play: play).dependencies();
+      controller.storeFinalScore();
       return Material(
         color: Colors.black38,
         child: Center(
@@ -22,15 +23,24 @@ class GameOverView extends GetView<GameOverController> {
             children: [
               Text(
                 'Score: ${controller.play.bird.score}',
-                style: const TextStyle(
-                  fontSize: 60,
+                style: TextStyle(
+                  fontSize: 60.sp,
                   color: Colors.white,
                   fontFamily: 'Game',
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 2.h),
+              Text(
+                'Your High Score: ${controller.showHighScore}',
+                style: TextStyle(
+                  fontSize: 24.sp,
+                  color: Colors.white,
+                  fontFamily: 'Game',
+                ),
+              ),
+              SizedBox(height: 2.h),
               Image.asset(ImageLocal.gameOver),
-              const SizedBox(height: 20),
+              SizedBox(height: 2.h),
               ElevatedButton(
                 onPressed: controller.onRestart,
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.orange),

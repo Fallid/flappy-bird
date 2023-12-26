@@ -15,6 +15,8 @@ class MainMenuView extends GetView<GameStartController> {
     return Sizer(builder: (context, orientation, devicetype) {
       GameStartBinding(play: play).dependencies();
       controller.onPause();
+      controller.initRealtimeScore();
+      controller.getHighScore();
 
       return Scaffold(
         body: GestureDetector(
