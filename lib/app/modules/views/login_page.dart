@@ -1,5 +1,6 @@
 import 'package:flappy_bird/app/components/style/color_local.dart';
 import 'package:flappy_bird/app/components/style/image_local.dart';
+import 'package:flappy_bird/app/modules/bindings/auth_binding.dart';
 import 'package:flappy_bird/app/modules/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -25,6 +26,7 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
+    AuthBinding().dependencies();
     return Scaffold(
       appBar: AppBar(
         actions: [],

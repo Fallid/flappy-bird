@@ -1,7 +1,9 @@
+import 'package:flappy_bird/app/components/style/image_local.dart';
 import 'package:flappy_bird/app/modules/views/login_page.dart';
 import 'package:flappy_bird/app/modules/views/register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sizer/sizer.dart';
 
 class Choise extends StatelessWidget {
   const Choise({super.key});
@@ -10,9 +12,9 @@ class Choise extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/background.png'),
+            image: AssetImage(ImageLocal.backgroundPage),
             fit: BoxFit.cover,
           ),
         ),
@@ -22,21 +24,21 @@ class Choise extends StatelessWidget {
             children: [
               ElevatedButton(
                 onPressed: () {
-                  Get.to(() => Login());
+                  Get.to(() => const Login());
                   print('Login button pressed');
                 },
-                child: Text(
+                child: const Text(
                   'Login',
                   style: TextStyle(color: Colors.black),
                 ),
               ),
-              SizedBox(height: 20), // Spasi antara tombol
+              SizedBox(height: 20.h), // Spasi antara tombol
               TextButton(
                 onPressed: () {
-                  Get.to(() => Register());
+                  Get.to(() => const Register());
                   print('Navigate to Register Page');
                 },
-                child: Text(
+                child: const Text(
                   'Register',
                   style: TextStyle(color: Colors.black),
                 ),

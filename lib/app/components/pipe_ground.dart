@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flame/components.dart';
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flappy_bird/app/components/pipe.dart';
@@ -9,11 +10,13 @@ import 'package:flappy_bird/app/modules/game_start/configuration.dart';
 import 'package:flappy_bird/app/modules/game_start/pipe_position.dart';
 import 'package:flappy_bird/app/modules/game_start/GamePlay.dart';
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
 
 class PipeGround extends PositionComponent with HasGameRef<GamePlay> {
   PipeGround();
   final _random = Random();
-
+  final _storage = GetStorage();
+  final _authCollection = FirebaseFirestore.instance.collection("Profile");
   @override
   FutureOr<void> onLoad() async {
     position.x = gameRef.size.x;
@@ -47,7 +50,11 @@ class PipeGround extends PositionComponent with HasGameRef<GamePlay> {
   }
 
   void updateScore() {
+    String user_token = _storage.read("user_token");
     gameRef.bird.score += 1;
+    _authCollection
+        .doc(user_token)
+        .update({'realtime score': gameRef.bird.score});
     FlameAudio.play(SoundLocal.point);
   }
 }

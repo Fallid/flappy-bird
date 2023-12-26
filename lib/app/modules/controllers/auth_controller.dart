@@ -30,9 +30,8 @@ class AuthController extends GetxController {
         email: email,
         password: password,
       );
-      await _authCollection
-          .doc(_auth.currentUser!.uid)
-          .set({'name': name, 'email': email});
+      await _authCollection.doc(_auth.currentUser!.uid).set(
+          {'name': name, 'email': email, 'high score': 0, 'realtime score': 0});
       Get.snackbar('Success', 'Registration successful',
           backgroundColor: ColorLocal.successColor);
       Get.off(() => const Login()); //Navigate ke Login Page

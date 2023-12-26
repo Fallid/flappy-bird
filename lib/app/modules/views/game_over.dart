@@ -1,16 +1,20 @@
 import 'package:flappy_bird/app/components/style/image_local.dart';
+import 'package:flappy_bird/app/modules/bindings/game_over_binding.dart';
+import 'package:flappy_bird/app/modules/controllers/game_over_controller.dart';
 import 'package:flappy_bird/app/modules/game_start/GamePlay.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
-class GameOverView extends StatelessWidget {
+class GameOverView extends GetView<GameOverController> {
   final GamePlay play;
-  static const String id = "gameOver";
   const GameOverView({Key? key, required this.play}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Sizer(builder: (context, orientation, devicetype) {
+      GameOverBinding(play: play).dependencies();
+      controller.storeFinalScore();
       return Material(
         color: Colors.black38,
         child: Center(
@@ -18,18 +22,27 @@ class GameOverView extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                'Score: ${play.bird.score}',
-                style: const TextStyle(
-                  fontSize: 60,
+                'Score: ${controller.play.bird.score}',
+                style: TextStyle(
+                  fontSize: 60.sp,
                   color: Colors.white,
                   fontFamily: 'Game',
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 2.h),
+              Text(
+                'Your High Score: ${controller.showHighScore}',
+                style: TextStyle(
+                  fontSize: 24.sp,
+                  color: Colors.white,
+                  fontFamily: 'Game',
+                ),
+              ),
+              SizedBox(height: 2.h),
               Image.asset(ImageLocal.gameOver),
-              const SizedBox(height: 20),
+              SizedBox(height: 2.h),
               ElevatedButton(
-                onPressed: onRestart,
+                onPressed: controller.onRestart,
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.orange),
                 child: const Text(
                   'Restart',
@@ -41,11 +54,5 @@ class GameOverView extends StatelessWidget {
         ),
       );
     });
-  }
-
-  void onRestart() {
-    play.bird.reset();
-    play.overlays.remove("gameOver");
-    play.resumeEngine();
   }
 }

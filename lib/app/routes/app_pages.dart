@@ -1,8 +1,7 @@
-import 'package:flappy_bird/app/modules/game_start/GamePlay.dart';
+import 'package:flappy_bird/app/modules/bindings/auth_binding.dart';
 import 'package:flappy_bird/app/modules/views/choiLogReg.dart';
 import 'package:flappy_bird/app/modules/views/game_init_view.dart';
 import 'package:flappy_bird/app/modules/views/login_page.dart';
-import 'package:flappy_bird/app/modules/views/main_menu.dart';
 import 'package:flappy_bird/app/modules/views/register_page.dart';
 import 'package:get/get.dart';
 
@@ -28,18 +27,11 @@ class AppPages {
       page: () => const Choise(),
     ),
     GetPage(
-      name: _Paths.LOGIN,
-      page: () => const Login(),
-    ),
+        name: _Paths.LOGIN, page: () => const Login(), binding: AuthBinding()),
     GetPage(
-      name: _Paths.REGISTER,
-      page: () => const Register(),
-    ),
-    GetPage(
-        name: _Paths.MAINMENU,
-        page: () => MainMenuView(
-              play: GamePlay(),
-            )),
+        name: _Paths.REGISTER,
+        page: () => const Register(),
+        binding: AuthBinding()),
     GetPage(name: _Paths.GAMEVIEW, page: () => const GameView())
   ];
 }
