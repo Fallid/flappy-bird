@@ -10,7 +10,7 @@ class Background extends SpriteComponent with HasGameRef<GamePlay> {
 
   @override
   FutureOr<void> onLoad() async {
-    final background = await Flame.images.load(ImageLocal.backgroundWinter);
+    final background = await Flame.images.load(ImageLocal.background);
     size = gameRef.size;
     sprite = Sprite(background);
     return super.onLoad();

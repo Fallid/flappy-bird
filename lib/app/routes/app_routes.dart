@@ -9,7 +9,9 @@ abstract class Routes {
   static const REGISTER = _Paths.REGISTER;
   static const GAMESTART = _Paths.GAMESTART;
   static const GAMEVIEW = _Paths.GAMEVIEW;
+  static const GAMEVIEWLV2 = _Paths.GAMEVIEWLV2;
   static const GAMEOVER = _Paths.GAMEOVER;
+  static const LEVELSTAGE = _Paths.LEVELSTAGE;
 }
 
 abstract class _Paths {
@@ -20,5 +22,7 @@ abstract class _Paths {
   static const REGISTER = '/register';
   static const GAMESTART = 'GAMESTART';
   static const GAMEVIEW = '/GAMEVIEW';
+  static const GAMEVIEWLV2 = '/GAMEVIEWLV2';
   static const GAMEOVER = 'GAMEOVER';
+  static const LEVELSTAGE = '/LEVELSTAGE';
 }

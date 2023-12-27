@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 import 'package:flame/components.dart';
-import 'package:flappy_bird/app/components/game_mode_lv1/background.dart';
-import 'package:flappy_bird/app/components/game_mode_lv1/bird.dart';
-import 'package:flappy_bird/app/components/game_mode_lv1/ground.dart';
-import 'package:flappy_bird/app/components/game_mode_lv1/pipe_ground.dart';
+import 'package:flappy_bird/app/components/game_mode_lv2/background.dart';
+import 'package:flappy_bird/app/components/game_mode_lv2/bird.dart';
+import 'package:flappy_bird/app/components/game_mode_lv2/ground.dart';
+import 'package:flappy_bird/app/components/game_mode_lv2/pipe_ground.dart';
 import 'package:flappy_bird/app/modules/game_start/configuration.dart';
 import 'package:flutter/material.dart';
 
