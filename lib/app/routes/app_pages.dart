@@ -1,6 +1,10 @@
 import 'package:flappy_bird/app/modules/bindings/auth_binding.dart';
+import 'package:flappy_bird/app/modules/bindings/init_app_binding.dart';
+import 'package:flappy_bird/app/modules/bindings/level_stage_binding.dart';
 import 'package:flappy_bird/app/modules/views/choiLogReg.dart';
+import 'package:flappy_bird/app/modules/views/game_init_lv2_view%20.dart';
 import 'package:flappy_bird/app/modules/views/game_init_view.dart';
+import 'package:flappy_bird/app/modules/views/level_stage_view.dart';
 import 'package:flappy_bird/app/modules/views/login_page.dart';
 import 'package:flappy_bird/app/modules/views/register_page.dart';
 import 'package:get/get.dart';
@@ -14,7 +18,7 @@ class AppPages {
   AppPages._();
 
   static const INITIAL = Routes.CHOISE;
-  static const LOGGED = Routes.GAMEVIEW;
+  static const LOGGED = Routes.LEVELSTAGE;
 
   static final routes = [
     GetPage(
@@ -32,6 +36,17 @@ class AppPages {
         name: _Paths.REGISTER,
         page: () => const Register(),
         binding: AuthBinding()),
-    GetPage(name: _Paths.GAMEVIEW, page: () => const GameView())
+    GetPage(
+        name: _Paths.GAMEVIEW,
+        page: () => const GameView(),
+        binding: InitAppBinding()),
+    GetPage(
+        name: _Paths.GAMEVIEWLV2,
+        page: () => const GameViewLv2(),
+        binding: InitAppBinding()),
+    GetPage(
+        name: _Paths.LEVELSTAGE,
+        page: () => const LevelStageView(),
+        binding: LevelStageBinding())
   ];
 }

@@ -47,30 +47,27 @@ class _RegisterState extends State<Register> {
             children: [
               TextField(
                 controller: _nameController,
-                style: TextStyle(color: Colors.black),
-                decoration: InputDecoration(
+                style: const TextStyle(color: Colors.black),
+                decoration: const InputDecoration(
                     labelText: 'Name',
-                    labelStyle:
-                        TextStyle(color: const Color.fromARGB(255, 0, 0, 0))),
+                    labelStyle: TextStyle(color: Color.fromARGB(255, 0, 0, 0))),
               ),
               TextField(
                 controller: _emailController,
-                style: TextStyle(color: Colors.black),
-                decoration: InputDecoration(
+                style: const TextStyle(color: Colors.black),
+                decoration: const InputDecoration(
                     labelText: 'Email',
-                    labelStyle:
-                        TextStyle(color: const Color.fromARGB(255, 0, 0, 0))),
+                    labelStyle: TextStyle(color: Color.fromARGB(255, 0, 0, 0))),
               ),
               TextField(
                 controller: _passwordController,
                 obscureText: true,
-                style: TextStyle(color: Colors.black),
-                decoration: InputDecoration(
+                style: const TextStyle(color: Colors.black),
+                decoration: const InputDecoration(
                     labelText: 'Password',
-                    labelStyle:
-                        TextStyle(color: const Color.fromARGB(255, 0, 0, 0))),
+                    labelStyle: TextStyle(color: Color.fromARGB(255, 0, 0, 0))),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Obx(() {
                 return ElevatedButton(
                   onPressed: _authController.isLoading.value
@@ -83,8 +80,9 @@ class _RegisterState extends State<Register> {
                           );
                         },
                   child: _authController.isLoading.value
-                      ? CircularProgressIndicator()
-                      : Text('Register', style: TextStyle(color: Colors.black)),
+                      ? const CircularProgressIndicator()
+                      : const Text('Register',
+                          style: TextStyle(color: Colors.black)),
                 );
               }),
             ],

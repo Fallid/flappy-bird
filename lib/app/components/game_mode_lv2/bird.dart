@@ -4,9 +4,9 @@ import 'package:flame/effects.dart';
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flappy_bird/app/components/style/image_local.dart';
 import 'package:flappy_bird/app/components/style/sound_local.dart';
-import 'package:flappy_bird/app/modules/game_start/movement.dart';
-import 'package:flappy_bird/app/modules/game_start/configuration.dart';
-import 'package:flappy_bird/app/modules/game_start/GamePlay.dart';
+import 'package:flappy_bird/app/modules/game_start_lv2/movement.dart';
+import 'package:flappy_bird/app/modules/game_start_lv2/GamePlay.dart';
+import 'package:flappy_bird/app/modules/game_start_lv2/configuration.dart';
 import 'package:flappy_bird/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 

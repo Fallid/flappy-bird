@@ -4,11 +4,11 @@ import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flame/components.dart';
 import 'package:flame_audio/flame_audio.dart';
-import 'package:flappy_bird/app/components/pipe.dart';
+import 'package:flappy_bird/app/components/game_mode_lv2/pipe.dart';
 import 'package:flappy_bird/app/components/style/sound_local.dart';
-import 'package:flappy_bird/app/modules/game_start/configuration.dart';
-import 'package:flappy_bird/app/modules/game_start/pipe_position.dart';
-import 'package:flappy_bird/app/modules/game_start/GamePlay.dart';
+import 'package:flappy_bird/app/modules/game_start_lv2/GamePlay.dart';
+import 'package:flappy_bird/app/modules/game_start_lv2/configuration.dart';
+import 'package:flappy_bird/app/modules/game_start_lv2/pipe_position.dart';
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 

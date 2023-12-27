@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flappy_bird/app/components/style/color_local.dart';
-import 'package:flappy_bird/app/modules/views/game_init_view.dart';
 import 'package:flappy_bird/app/modules/views/login_page.dart';
+import 'package:flappy_bird/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -30,8 +30,9 @@ class AuthController extends GetxController {
         email: email,
         password: password,
       );
-      await _authCollection.doc(_auth.currentUser!.uid).set(
-          {'name': name, 'email': email, 'high score': 0, 'realtime score': 0});
+      await _authCollection
+          .doc(_auth.currentUser!.uid)
+          .set({'name': name, 'email': email});
       Get.snackbar('Success', 'Registration successful',
           backgroundColor: ColorLocal.successColor);
       Get.off(() => const Login()); //Navigate ke Login Page
@@ -51,7 +52,7 @@ class AuthController extends GetxController {
       Get.snackbar('Succes', 'Login scucces',
           backgroundColor: ColorLocal.successColor);
       isLoggedIn.value = true;
-      Get.off(() => const GameView());
+      Get.offAndToNamed(Routes.LEVELSTAGE);
     } catch (err) {
       Get.snackbar('Error', 'Login failed: $err',
           backgroundColor: ColorLocal.errorColor);
