@@ -11,8 +11,10 @@ class InitAppController extends GetxController {
   Future<void> getHighScore() async {
     try {
       DocumentSnapshot userDoc = await _authCollection.doc(_userToken).get();
-      dynamic highScore = userDoc.get("high score");
-      _storeHighScore.write("high score", highScore);
+      dynamic highScoreEasy = userDoc.get("high score easy");
+      dynamic highScoreHard = userDoc.get("high score easy");
+      _storeHighScore.write("high score easy", highScoreEasy);
+      _storeHighScore.write("high score hard", highScoreHard);
     } catch (e) {
       Get.snackbar("Warning", "Cannot Load High Score");
     }

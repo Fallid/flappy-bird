@@ -10,7 +10,7 @@ class GameOverController extends GetxController {
   final _storage = GetStorage();
   final CollectionReference _authCollection =
       FirebaseFirestore.instance.collection("Profile");
-  late dynamic showHighScore = _storage.read("high score") ?? 0;
+  late dynamic showHighScore = _storage.read("high score easy") ?? 0;
 
   void onRestart() {
     play.bird.reset();
@@ -24,11 +24,11 @@ class GameOverController extends GetxController {
       String userToken = _storage.read("user_token");
       DocumentSnapshot userDoc = await _authCollection.doc(userToken).get();
       dynamic realTime = userDoc.get("realtime score");
-      dynamic highScore = userDoc.get("high score");
+      dynamic highScore = userDoc.get("high score easy");
       if (realTime > highScore) {
-        _authCollection.doc(userToken).update({'high score': realTime});
+        _authCollection.doc(userToken).update({'high score easy': realTime});
       }
-      print("high score:  $highScore");
+      print("high score easy:  $highScore");
       print("realtime score:  $realTime");
     } catch (e) {
       print("Error fetch data:$e");
