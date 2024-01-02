@@ -49,7 +49,18 @@ class LevelStageView extends StatelessWidget {
                 child: const Text(
                   "Hard",
                   style: TextStyle(color: Colors.white),
-                ))
+                )),
+            ElevatedButton(
+                onPressed: () {
+                  Get.toNamed(Routes.GAMEVIEWLV2);
+                },
+                style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.orange)),
+                child: const Text(
+                  "Multi Player",
+                  style: TextStyle(color: Colors.white),
+                )),
           ],
         ),
       ),
