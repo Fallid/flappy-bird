@@ -36,4 +36,16 @@ class GameStartController extends GetxController {
     Get.offAllNamed(Routes
         .CHOISE); // Navigate ke HomePage dan hapus semua halaman sebelumnya
   }
+
+  Future<void> getHighScore() async {
+    try {
+      DocumentSnapshot userDoc = await _authCollection.doc(_userToken).get();
+      dynamic highScoreEasy = userDoc.get("high score easy");
+      dynamic highScoreHard = userDoc.get("high score easy");
+      _getStorage.write("high score easy", highScoreEasy);
+      _getStorage.write("high score hard", highScoreHard);
+    } catch (e) {
+      Get.snackbar("Warning", "Cannot Load High Score");
+    }
+  }
 }
