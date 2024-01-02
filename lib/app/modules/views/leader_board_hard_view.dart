@@ -43,7 +43,8 @@ class LeaderBoardHardView extends GetView<LeaderBoardHardController> {
                     itemBuilder: (context, index) {
                       Map<String, dynamic> data = controller.dataList[index];
                       return Container(
-                        margin: const EdgeInsets.only(left: 20, right: 20),
+                        margin: const EdgeInsets.only(
+                            left: 20, right: 20, bottom: 20),
                         padding: const EdgeInsets.only(left: 20),
                         decoration: BoxDecoration(
                             color: Colors.blue,
@@ -57,9 +58,10 @@ class LeaderBoardHardView extends GetView<LeaderBoardHardController> {
                             ),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text('Name: ${data['name']}'),
-                                Text(' High Score : ${data['high score hard']}')
+                                Text('High Score : ${data['high score hard']}')
                               ],
                             ),
                           ],
