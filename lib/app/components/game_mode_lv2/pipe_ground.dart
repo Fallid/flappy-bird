@@ -49,12 +49,13 @@ class PipeGround extends PositionComponent with HasGameRef<GamePlay> {
     }
   }
 
-  void updateScore() {
+  void updateScore() async {
     String user_token = _storage.read("user_token");
-    gameRef.bird.score += 1;
-    _authCollection
-        .doc(user_token)
-        .update({'realtime score': gameRef.bird.score});
+    DocumentSnapshot userDoc = await _authCollection.doc(user_token).get();
+    dynamic realTime = userDoc.get("realtime score");
+    realTime += 1;
+    gameRef.bird.score = realTime;
+    _authCollection.doc(user_token).update({'realtime score': realTime});
     FlameAudio.play(SoundLocal.point);
   }
 }

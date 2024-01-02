@@ -12,6 +12,8 @@ abstract class Routes {
   static const GAMEVIEWLV2 = _Paths.GAMEVIEWLV2;
   static const GAMEOVER = _Paths.GAMEOVER;
   static const LEVELSTAGE = _Paths.LEVELSTAGE;
+  static const LEADERBOARD = _Paths.LEADERBOARD;
+  static const LEADERBOARDHARD = _Paths.LEADERBOARDHARD;
 }
 
 abstract class _Paths {
@@ -25,4 +27,6 @@ abstract class _Paths {
   static const GAMEVIEWLV2 = '/GAMEVIEWLV2';
   static const GAMEOVER = 'GAMEOVER';
   static const LEVELSTAGE = '/LEVELSTAGE';
+  static const LEADERBOARD = '/LEADERBOARD';
+  static const LEADERBOARDHARD = '/LEADERBOARDHARD';
 }
